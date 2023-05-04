@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" >
+	<style type="text/css">
+		.container {
+			margin-top: 70px;
+		}
+		img{
+			width: 100%;
+			height: auto;
+		}
+		h2{
+			padding-top: 50px;
+		}
+		p{
+			font-size: 17px!important;
+		}
+
+
+	</style>
+</head>
+<body>
+
+  {% include "nav.html" %}
+<div class="container">
+	<div class="row">
+	 <div class="col-sm-6 ">
+{% load static %}
+<img src="{% static 'images/farm1.png' %}" alt="My image" style="padding:4px;width:100%;height:100%">
+  </div>
+		<div class="col"-sm-6>
+			<h2>About Green Fields</h2>
+			<p class="lead"><strong>At Green Fields Store, we're passionate about providing high-quality agricultural products to support healthy, sustainable food systems. Our store offers a wide selection of farm and garden supplies, including seeds, soil amendments, tools, and equipment.
+
+				We take pride in working with local farmers and producers to source our products, and we're committed to promoting organic and regenerative farming practices.<br><br>  Our knowledgeable staff is always on hand to offer expert advice and answer your questions about everything from composting to crop rotation.</strong><br><br></p></div>
+
+	</div>
+</div>

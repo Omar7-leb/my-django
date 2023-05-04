@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<title>Home</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" >
+	 <style type="text/css">
+    .card-container {
+         flex-wrap: wrap;
+        justify-content: space-between;
+
+
+     }
+    .card {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      display: inline-block;
+      padding-left:10px;
+      margin-right: 20px;
+     }
+
+    .card img {
+       height: 250px;
+       object-fit: cover;
+       border-top-left-radius: 5px;
+       border-top-right-radius: 5px;
+     }
+
+     .card .card-body {
+        padding-left:10px;
+
+     }
+
+     .card .card-title {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 5px;
+        margin-left:5px;
+     }
+    .card-item-description {
+  margin: 0 0 10px;
+  font-size: 14px;
+  color: #666;
+}
+
+     .card-item-price {
+  margin: 0 0 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+    .add-to-cart-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin-right: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+h5{
+    color:red;
+   }
+
+  </style>
+</head>
+<body>
+{% if user.is_authenticated %}
+{% else %}
+{% endif %}
+  {% include "nav.html" %}
+{% for message in messages %}
+<h5>{{message}}</h5>
+{% endfor %}
+{% for product in products %}
+<div class="card">
+    <img src="{% static 'images/egg.png' %}" alt="{{ product.name }}" class="card-img-top">
+    <div class="card-body">
+      <h4 class="card-title">{{ product.name }}</h4>
+      <p class="card-item-description">{{ product.description }}</p>
+      <p class="card-item-price">{{ product.unit_price }}</p>
+<!--        <form method="post" action="{% url /add_to_cart/{{ product.id }}">-->
+<!--        {% csrf_token %}-->
+<!--      <button type="submit" class="btn btn-danger">Delete</button>-->
+        <a href="/delete_product/{{ product.id }}" class="add-to-cart-button">delete</a>
+        </form>
+    </div>
+  </div>
+{% endfor %}
+</body>
+</html>

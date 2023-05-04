@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Register</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" >
+	<style>
+		input,select{
+			width: 300px!important;
+			border-radius: 0px!important;
+		}
+		form{
+			margin: 20px auto;
+			width: 300px;
+			height: 450px;
+			text-align: center;
+		}
+		select{
+			height:30px;
+		}
+		button{
+			width: 140px;
+			border-radius: 0px!important;
+		}
+		h5 {
+           color : red;
+        }
+	</style>
+</head>
+<body>
+{% include "nav.html" %}
+<!-- Form -->
+<div class="container">
+<div class="row">
+<form action="/register" method="POST">
+{% for message in messages %}
+<h5>{{message}}</h5>
+{% endfor %}
+	{% csrf_token %}
+ 	<input type="text" name="name" placeholder="Full Name" required="" class="form-control"><br>
+ 	<input type="text" name="username" placeholder="Userame" required="" class="form-control"><br>
+ 	<input type="email" name="email" placeholder="Email" required="" class="form-control"><br>
+ 	<input type="tel" name="phone" placeholder="Phone Number" required="" class="form-control"><br>
+ 	<input type="password" name="pass1" placeholder="Password" required="" class="form-control"><br>
+ 	<input type="password" name="pass2" placeholder="  Confirm Password" required="" class="form-control"><br>
+ <button type="submit" class="btn btn-primary">Register</button>
+	<p class="message">Already have an acoount? <a href="{% url 'login' %}">login</a></p>
+</form>
+</div>
+</div>
+</form>
+</div>
+</div>
+</body>
+</html>
